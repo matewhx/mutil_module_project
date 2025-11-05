@@ -1,0 +1,11 @@
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/CMakeFiles/edit_cache.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/CMakeFiles/planing_main.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/CMakeFiles/edit_cache.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/CMakeFiles/rebuild_cache.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/pnc_map/CMakeFiles/pnc_map.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/pnc_map/CMakeFiles/edit_cache.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/pnc_map/CMakeFiles/rebuild_cache.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/process/CMakeFiles/process.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/process/CMakeFiles/edit_cache.dir
+C:/Users/Haixiang/Desktop/vs code project/mutil_module_project/build/src/process/CMakeFiles/rebuild_cache.dir
