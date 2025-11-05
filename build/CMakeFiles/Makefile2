@@ -145,8 +145,8 @@ src/process/clean: src/process/CMakeFiles/process.dir/clean
 # Target rules for target src/CMakeFiles/planing_main.dir
 
 # All Build rule for target.
-src/CMakeFiles/planing_main.dir/all: src/process/CMakeFiles/process.dir/all
 src/CMakeFiles/planing_main.dir/all: src/pnc_map/CMakeFiles/pnc_map.dir/all
+src/CMakeFiles/planing_main.dir/all: src/process/CMakeFiles/process.dir/all
 	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\planing_main.dir\build.make src/CMakeFiles/planing_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f src\CMakeFiles\planing_main.dir\build.make src/CMakeFiles/planing_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\Haixiang\Desktop\vs code project\mutil_module_project\build\CMakeFiles" --progress-num=1,2 "Built target planing_main"

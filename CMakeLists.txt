@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.29.0)
 project(planning
     VERSION 0.0.1
     DESCRIPTION "a demo of cmake planning"
-    HOMEPAGE_URL "https://github.com/matewhx/mutil_module_project"
+    HOMEPAGE_URL "https://github.com/matewhx/mutil_module_project.git"
     LANGUAGES CXX
 )
 
