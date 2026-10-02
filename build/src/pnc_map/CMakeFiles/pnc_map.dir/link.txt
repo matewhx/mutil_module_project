@@ -1,3 +1,0 @@
-D:\study_program\cmake\bin\cmake.exe -E rm -f CMakeFiles\pnc_map.dir/objects.a
-D:\study_program\mingw64\bin\ar.exe qc CMakeFiles\pnc_map.dir/objects.a @CMakeFiles\pnc_map.dir\objects1.rsp
-D:\study_program\mingw64\bin\g++.exe -g -shared -o "C:\Users\Haixiang\Desktop\vs code project\mutil_module_project\bin\libpnc_map.dll" -Wl,--out-implib,libpnc_map.dll.a -Wl,--major-image-version,0,--minor-image-version,0 -Wl,--whole-archive CMakeFiles\pnc_map.dir/objects.a -Wl,--no-whole-archive @CMakeFiles\pnc_map.dir\linkLibs.rsp
