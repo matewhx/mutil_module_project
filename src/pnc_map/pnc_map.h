@@ -6,4 +6,5 @@ public:
     void mapInfo2();
     void mapInfo3();
     void mapInfo4();
+    void mapInfo5();
 };

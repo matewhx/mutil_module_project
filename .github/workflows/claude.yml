@@ -38,7 +38,7 @@ jobs:
           ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           # action 启动校验要求此变量存在，值复用 GLM Key
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
-          ANTHROPIC_MODEL: glm-5.3
+          ANTHROPIC_MODEL: glm-5.3-flash
         with:
           prompt: |
             审查这个 PR 的代码变更，重点检查：
@@ -53,6 +53,7 @@ jobs:
           claude_args: >-
             --allowedTools "Read,Grep,Glob"
             --max-turns 10
+          show_full_output: true  # 调试用：打印 Claude 完整输出，定位 is_error 原因
 
   # ========== 任务二：@claude 交互助手（评论 @claude 时触发，可改代码） ==========
   claude:
@@ -77,6 +78,6 @@ jobs:
           ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           # action 启动校验要求此变量存在，值复用 GLM Key
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
-          ANTHROPIC_MODEL: glm-5.3
+          ANTHROPIC_MODEL: glm-5.3-flash
         with:
           trigger_phrase: "@claude"

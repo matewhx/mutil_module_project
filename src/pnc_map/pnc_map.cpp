@@ -40,3 +40,25 @@ void PNC_map::mapInfo4()
 
     std::cout <<"this is pnc_map4 end"<<std::endl;
 }
+
+void PNC_map::mapInfo5()
+{
+    if (true)
+    {
+        std::cout <<"this is pnc_map5"<<std::endl;
+
+    }
+    else
+    {
+        bool flag = false;
+        while (true)
+        {
+            std::cout <<"this is pnc_map5 else while"<<std::endl;
+            if (flag)
+            {
+                break;
+            }
+        }
+        std::cout <<"this is pnc_map5 else"<<std::endl;
+    }
+}
