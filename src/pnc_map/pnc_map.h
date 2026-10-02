@@ -13,4 +13,5 @@ public:
     void mapInfo9();
     void mapInfo10();
     void mapInfo11();
+    void mapInfo12();
 };
