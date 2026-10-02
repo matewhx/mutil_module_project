@@ -10,6 +10,7 @@ target_include_directories(${PROJECT_NAME}
     ${PROCESS_DIR}
 )
 
+# 指定要链接的库
 target_link_libraries(${PROJECT_NAME}
 PUBLIC
 process

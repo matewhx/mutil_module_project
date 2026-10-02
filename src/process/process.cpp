@@ -1,5 +1,7 @@
 #include <iostream>
 #include "process.h"
+#include <Eigen/Dense>
+
 
 void process::planProcess()
 {

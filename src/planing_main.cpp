@@ -4,6 +4,8 @@
 #include <memory>
 #include "process.h"
 
+using namespace std;
+
 int main()
 {
     process p;
@@ -14,6 +16,5 @@ int main()
 
     return 0;
 }
-
 
 
