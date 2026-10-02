@@ -39,8 +39,8 @@ jobs:
           # action 启动校验要求此变量存在，值复用 GLM Key
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           ANTHROPIC_MODEL: glm-5.3-flash
+          CLAUDE_USE_STICKY_COMMENT: true  # action 预创建评论并注入 CLAUDE_COMMENT_ID，评论工具必需
         with:
-          use_sticky_comment: true  # action 预创建评论并注入 CLAUDE_COMMENT_ID，评论工具必需
           prompt: |
             审查这个 PR 的代码变更，重点检查：
             1. 安全漏洞（敏感信息硬编码、缓冲区溢出、命令注入）
