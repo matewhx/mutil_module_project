@@ -51,7 +51,7 @@ jobs:
             ### 🟡 Warning（建议修复）
             ### 🔵 Suggestion（可选优化）
           claude_args: >-
-            --allowedTools "Read,Grep,Glob"
+            --allowedTools "Read,Grep,Glob,mcp__github_comment__create_comment,mcp__github_comment__update_comment"
             --max-turns 30
           show_full_output: true  # 调试用：打印 Claude 完整输出，定位 is_error 原因
           display_report: true    # 由 action 直接把最终报告发布为 PR 评论（GLM 不总是主动调用评论工具）
