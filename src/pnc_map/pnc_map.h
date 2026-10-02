@@ -9,4 +9,5 @@ public:
     void mapInfo5();
     void mapInfo6();
     void mapInfo7();
+    void mapInfo8();
 };
