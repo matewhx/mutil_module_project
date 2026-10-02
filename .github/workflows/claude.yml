@@ -1,0 +1,76 @@
+# .github/workflows/claude.yml
+# 合并版：PR 自动审查（只读）+ @claude 交互助手，后端为智谱 GLM
+name: Claude Code
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]  # PR 创建/新提交/重新打开时自动审查
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  issues:
+    types: [opened, assigned]
+
+# 同一 PR/Issue 的新触发取消旧的运行——避免浪费
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  # ========== 任务一：PR 自动审查（只读，PR 一更新就自动跑） ==========
+  review:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      contents: read        # 只读代码——审查员不许改代码
+      pull-requests: write  # 允许发审查评论
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 完整历史，用于 diff 分析
+
+      - uses: anthropics/claude-code-action@v1
+        env:
+          # 指向智谱 GLM 的 Anthropic 兼容端点
+          ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+          ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
+          ANTHROPIC_MODEL: glm-5.3
+        with:
+          prompt: |
+            审查这个 PR 的代码变更，重点检查：
+            1. 安全漏洞（敏感信息硬编码、缓冲区溢出、命令注入）
+            2. 未处理的错误情况和边界条件（空指针、资源泄漏、返回值未检查）
+            3. 性能问题（不必要的拷贝、重复计算、内存泄漏风险）
+            输出格式：
+            ## 审查报告
+            ### 🔴 Critical（必须修复）
+            ### 🟡 Warning（建议修复）
+            ### 🔵 Suggestion（可选优化）
+          claude_args: >-
+            --allowedTools "Read,Grep,Glob"
+            --max-turns 10
+
+  # ========== 任务二：@claude 交互助手（评论 @claude 时触发，可改代码） ==========
+  claude:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+    permissions:
+      contents: write        # 允许 Claude 修改并提交代码
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: anthropics/claude-code-action@v1
+        env:
+          ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+          ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
+          ANTHROPIC_MODEL: glm-5.3
+        with:
+          trigger_phrase: "@claude"
