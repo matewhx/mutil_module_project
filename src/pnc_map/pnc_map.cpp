@@ -22,4 +22,6 @@ void PNC_map::mapInfo3()
             break;
         }
     }
+
+    std::cout <<"this is pnc_map3 end"<<std::endl;
 }

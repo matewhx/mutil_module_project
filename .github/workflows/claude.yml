@@ -36,6 +36,8 @@ jobs:
           # 指向智谱 GLM 的 Anthropic 兼容端点
           ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
           ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
+          # action 启动校验要求此变量存在，值复用 GLM Key
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           ANTHROPIC_MODEL: glm-5.3
         with:
           prompt: |
@@ -73,6 +75,8 @@ jobs:
         env:
           ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
           ANTHROPIC_AUTH_TOKEN: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
+          # action 启动校验要求此变量存在，值复用 GLM Key
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           ANTHROPIC_MODEL: glm-5.3
         with:
           trigger_phrase: "@claude"
