@@ -84,3 +84,25 @@ void PNC_map::mapInfo6()
         std::cout <<"this is pnc_map6 else"<<std::endl;
     }
 }
+
+void PNC_map::mapInfo7()
+{
+    if (true)
+    {
+        std::cout <<"this is pnc_map7"<<std::endl;
+
+    }
+    else
+    {
+        bool flag = false;
+        while (true)
+        {
+            std::cout <<"this is pnc_map7 else while"<<std::endl;
+            if (flag)
+            {
+                break;
+            }
+        }
+        std::cout <<"this is pnc_map7 else"<<std::endl;
+    }
+}
