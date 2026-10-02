@@ -25,6 +25,7 @@ jobs:
     permissions:
       contents: read        # 只读代码——审查员不许改代码
       pull-requests: write  # 允许发审查评论
+      id-token: write       # action 启动时需要 OIDC token 换取 GitHub token
     steps:
       - uses: actions/checkout@v4
         with:
@@ -62,6 +63,7 @@ jobs:
       contents: write        # 允许 Claude 修改并提交代码
       pull-requests: write
       issues: write
+      id-token: write        # action 启动时需要 OIDC token 换取 GitHub token
     steps:
       - uses: actions/checkout@v4
         with:
