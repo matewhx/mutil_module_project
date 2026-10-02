@@ -206,3 +206,26 @@ void PNC_map::mapInfo12()
     }
     return;
 }
+
+
+void PNC_map::mapInfo13()
+{
+    if (true)
+    {
+        std::cout <<"this is 13"<<std::endl;
+
+    }
+    else
+    {
+        bool flag = false;
+        while (true)
+        {
+            std::cout <<"this is pnc_map13 else while"<<std::endl;
+            if (flag)
+            {
+                break;
+            }
+        }
+        std::cout <<"this is pnc_map13 else"<<std::endl;
+    }
+}
