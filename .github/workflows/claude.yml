@@ -13,8 +13,9 @@ on:
     types: [opened, assigned]
 
 # 同一 PR/Issue 的新触发取消旧的运行——避免浪费
+# 组名含事件名：bot 发布报告评论触发的 issue_comment 运行不会取消正在进行的 pull_request 审查
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.issue.number }}
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.event.issue.number }}
   cancel-in-progress: true
 
 jobs:
@@ -52,10 +53,9 @@ jobs:
             ### 🔵 Suggestion（可选优化）
             完成分析后，必须调用 mcp__github__add_issue_comment 工具（body 参数填完整审查报告），把报告发布到当前 PR。这是报告送达用户的唯一途径，不调用该工具报告就不会显示。
           claude_args: >-
-            --allowedTools "Read,Grep,Glob,mcp__github__add_issue_comment"
+            --allowedTools "Read,Grep,Glob,mcp__github__add_issue_comment,mcp__github__get_pull_request,Bash(g++:*)"
             --max-turns 30
-          show_full_output: true  # 调试用：打印 Claude 完整输出，定位 is_error 原因
-          display_report: true    # 由 action 直接把最终报告发布为 PR 评论（GLM 不总是主动调用评论工具）
+          display_report: true    # 同时在 Actions Summary 页保留一份报告副本
 
   # ========== 任务二：@claude 交互助手（评论 @claude 时触发，可改代码） ==========
   claude:
