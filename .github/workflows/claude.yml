@@ -39,7 +39,6 @@ jobs:
           # action 启动校验要求此变量存在，值复用 GLM Key
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           ANTHROPIC_MODEL: glm-5.3-flash
-          CLAUDE_USE_STICKY_COMMENT: true  # action 预创建评论并注入 CLAUDE_COMMENT_ID，评论工具必需
         with:
           prompt: |
             审查这个 PR 的代码变更，重点检查：
@@ -51,9 +50,9 @@ jobs:
             ### 🔴 Critical（必须修复）
             ### 🟡 Warning（建议修复）
             ### 🔵 Suggestion（可选优化）
-            完成分析后，必须调用 mcp__github_comment__update_claude_comment 工具，把完整审查报告作为 body 参数发布，这是报告送达用户的唯一途径。
+            完成分析后，必须调用 mcp__github__add_issue_comment 工具（body 参数填完整审查报告），把报告发布到当前 PR。这是报告送达用户的唯一途径，不调用该工具报告就不会显示。
           claude_args: >-
-            --allowedTools "Read,Grep,Glob,mcp__github_comment__update_claude_comment"
+            --allowedTools "Read,Grep,Glob,mcp__github__add_issue_comment"
             --max-turns 30
           show_full_output: true  # 调试用：打印 Claude 完整输出，定位 is_error 原因
           display_report: true    # 由 action 直接把最终报告发布为 PR 评论（GLM 不总是主动调用评论工具）
