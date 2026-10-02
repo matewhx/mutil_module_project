@@ -149,3 +149,24 @@ void PNC_map::mapInfo9()
         std::cout <<"this is pnc_map9 else"<<std::endl;
     }
 }
+
+void PNC_map::mapInfo10()
+{
+    int a = 10;
+    switch (a)
+    {
+        case 1:
+            std::cout <<"this is pnc_map10 case 1"<<std::endl;
+            break;
+        case 2:
+            std::cout <<"this is pnc_map10 case 2"<<std::endl;
+            break;
+        case 10:
+            std::cout <<"this is pnc_map10 case 10"<<std::endl;
+            break;
+        default:
+            std::cout <<"this is pnc_map10 default"<<std::endl;
+            break;
+    }
+    return;
+}
