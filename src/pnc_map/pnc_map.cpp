@@ -170,3 +170,21 @@ void PNC_map::mapInfo10()
     }
     return;
 }
+
+void PNC_map::mapInfo11()
+{
+    int a = 10;
+    for(int i = 100; i > a; i--)
+    {
+        if(i == 105)
+        {
+            std::cout <<"this is pnc_map11 for loop: i: " << i << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout <<"this is pnc_map11 for loop: i: " << i << std::endl;
+        }
+    }
+    return;
+}
