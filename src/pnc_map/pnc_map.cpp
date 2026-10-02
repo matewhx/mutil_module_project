@@ -53,7 +53,7 @@ void PNC_map::mapInfo5()
         bool flag = false;
         while (true)
         {
-            std::cout <<"this is pnc_map4 else while"<<std::endl;
+            std::cout <<"this is pnc_map5 else while"<<std::endl;
             if (flag)
             {
                 break;
