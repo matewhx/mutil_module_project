@@ -22,4 +22,21 @@ void PNC_map::mapInfo3()
             break;
         }
     }
+
+    std::cout <<"this is pnc_map3 end"<<std::endl;
+}
+
+void PNC_map::mapInfo4()
+{
+    bool flag = false;
+    while (true)
+    {
+        std::cout <<"this is pnc_map4"<<std::endl;
+        if (flag)
+        {
+            break;
+        }
+    }
+
+    std::cout <<"this is pnc_map4 end"<<std::endl;
 }
