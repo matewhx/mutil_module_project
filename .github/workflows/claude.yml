@@ -40,6 +40,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_AUTH_TOKEN }}
           ANTHROPIC_MODEL: glm-5.3-flash
         with:
+          use_sticky_comment: true  # action 预创建评论并注入 CLAUDE_COMMENT_ID，评论工具必需
           prompt: |
             审查这个 PR 的代码变更，重点检查：
             1. 安全漏洞（敏感信息硬编码、缓冲区溢出、命令注入）
@@ -83,4 +84,5 @@ jobs:
           ANTHROPIC_MODEL: glm-5.3-flash
         with:
           trigger_phrase: "@claude"
+          use_sticky_comment: true  # 预创建评论，保证评论工具可用
           display_report: true    # 由 action 直接把最终回复发布出来（GLM 不总是主动调用评论工具）
